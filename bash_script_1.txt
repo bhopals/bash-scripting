@@ -139,6 +139,11 @@ example: Instead of ">", "gt" should be used and so on
 [[ "cat"=="cat" ]]
 [[  4 gt 5]]
 
+
+
+-z option  - NOT EMPTY
+
+
 String Manipulations
 ----------------------------------------------
 a="Hello"
