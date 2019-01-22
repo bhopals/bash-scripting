@@ -1,0 +1,138 @@
+================================================
+            Chapter 3
+================================================
+
+IF Statements
+-----------------------------
+	if [[statements]]
+	if (expressions)
+	if  expresison
+
+	if <expr>
+	then  
+		echo
+	else 
+		echo
+	fi
+
+	OR
+
+	NOTE: 
+		Semicolon here if we put "Then/do" in the same line.
+		It ends with "fi".
+	if <expr>;then  
+		echo
+	else 
+		echo
+	fi
+
+	example
+	------------------
+	a=5
+	if [ $a -gt 4]
+	then
+		echo $a is greater than 4!
+	else 
+		echo $a is not greater than 4!
+	fi
+
+	ELSE if 
+	------
+	if <expr>
+	then
+		echo
+	elif <expr> 
+		echo
+	else 
+		echo
+	fi
+
+
+Working with LOOPS
+-------------------------------------------
+	i=0
+	while [ $i -le 10]
+	do
+		echo i=$i
+		((i+=1))
+	done
+
+	j=0
+	until [$j -ge 10 ]; do
+		echo j:$j
+		((j+=1))
+	done
+
+NOTE: It starts with "do" and ends with "done".
+
+FOR Loop
+-------------------------------------------
+for i in {1..100..2} //the third variable is INTERVAL
+OR
+for ((i=0; i<=10; i++)) //This will also work
+do
+	echo $i
+done
+
+
+CASE Statements
+-------------------------------------------------
+a="dog"
+case $a in
+		cat) echo "CAT";;
+		dog|puppt) echo "DOG PUPPY";;
+		*) "NO MATCH";;
+esac
+
+NOTE : ";;" to tell the BASH that we are done with the specific TEST
+
+
+Using Functions
+----------------------------------------------------
+function greet {
+	echo "Test Function"
+}
+echo "calliinggg..."
+
+greet  //invoke the function
+
+
+funtion greet {
+	echo "Hello $1"
+}
+
+greet "Bhopal" //passing parameters
+
+$@ - represent array list values passed to the function
+
+
+To list array of arguements
+example: 
+	for i in $@
+	do
+		echo $i
+	done
+
+	echo "There were $# arguments"
+
+
+Capture User Input
+---------------------------------------
+echo "What is your name?"
+read name
+
+echo "What is your password?"
+read -s pass
+
+echo "What's your favorite animal?" animal
+
+echo $name $pass $animal
+
+
+
+select animal in  "cat" "dog" "bird" "fish"
+do
+	echo "You selected $animal!"
+	break
+done
+
