@@ -158,3 +158,60 @@ echo ${fruit/banana/durian} - So here first varible is String, second is the Par
 
 Helper Methods
 -----------------------------------------------
+1. DATE - Date Formatting 
+    date - This would return todays data with current timestamp
+    To have it in precise format we need to pass the "date + format parameter"
+    Example : data +"%d-%m-%Y" - (22-01-2019)
+
+2. PRINTF - Printing Text with extra options provided
+    printf "Name:\t%s\nID:\t%04d\n" "Scott" "12"
+
+    *Here "\t" for the TAB, "\n" for the new Line, "%s","%d" is place holder to replace STRING and Number respectively, and at the end 2 parameters which we are going to pass/substitute in the Formatted sytax
+    "%04d" - is sytax for Four Digit Padded numeric value
+
+    Output would be:
+    -----------------
+    Name:   Scott
+    ID:     0012
+
+    printf -v d "TEST"  (Here "d" works as a variable to store values)
+    echo $d
+
+    Example:
+    ---------------------------------
+    today=$(date +"%d-%m-%Y")
+    time=$(date +"%H:%M:%S")
+    printf -v d "Current User:\t%s\n Date:\t\t%s @ %s\n" $USER $today $time 
+    echo "$d"  
+
+    OUTPUT
+    ---------------------
+    Current User:   BHOPAL
+    Date:           21-01-2019 21:16:55
+
+
+    Working with ARRAYS
+    ----------------------------------------------
+    To declare array we need to use paranthesis "()" and provide without comma separated elements value
+    example:
+    b=("Apple" "Banana" "Kiwi")
+    echo ${b[2]}
+    b[5]="Mango" //also work
+
+    To add any element at the end use "@" as index
+
+
+    READING and WRITING TEXT Files
+    ----------------------------------------------------
+    Writing: (">")
+    echo "SomeTEXT" > file.txt  (Will replace the content of the file to provided one)
+    echo "SomeTEXT" >> file.txt  (Add provided content at the end of FILE without overwriting anything)
+
+    READING: ("<")
+    cat < file_name.txt (Will display the content)
+    cat << file_name.txt (end of the file content)
+
+
+    Use "HERE" document
+    -----------------------------------------------------
+
