@@ -1,0 +1,101 @@
+Chapter 1
+echo $BASH_VERSION  - (Bash version)
+What is BASH - Bourne Again SHell - It is a very interactive command line interpreter. (1989)
+
+pwd - Present working directory
+
+ls - Listing of the directory
+ls -l (listing of the directory with folder and files details)
+
+cp <file_to_copy> <new_name_of_file> (copy files)
+rmdir/ mkdir
+cat <file_name> (to read the file content)
+tail <file_name> ( To see the end content of long file)
+head <file_name> ( To see starting content of the file)
+
+rm * (delete all files inside the folder)
+
+Bash provides handy shortcuts called "Expansions"
+~ ( Tilde expansions)
+{} (Brace expansions)
+touch file_{1..100} (create file_<number> from 1 to 100.
+echo {A..z} ( print A,B....a,b,...z)
+echo {1..20..2} (print 1,3,7,....19)
+
+PIPES
+
+ls 
+
+ls | more  ( to see the output page by page)
+rm ../otherfolder/*
+mkdir test
+cp -v * ../<copy-folder>
+
+To redirect the output bash has ">" 
+ls > abc.txt (It will copy the listing to "abc.txt" file)
+
+Grep
+To search any content in the log
+
+grep "Search keyword" <file_name>
+grep --color-auto "Search Keyword" <file_name>  
+example : grep --color=auto "Bhopal" server.log
+
+export GREP_OPTIONS = --color=auto  ( It will set auto color for all the grep commands, hence no need to mention explicitly)
+
+grep -i system-error auth.log
+
+use of "awk" - to extract data by line number from any file
+
+
+Interperter Directive ( #!), which is also called "hashbang" or "shebang"  #!/bin/bash
+
+#comment - To add comment
+#! <name> - This is the bash script or executable
+
+Steps to create any BASH File
+	1. 
+nano test.sh
+	2. 
+The editor pops up and then the first line would be #!/bin/bash
+	3. 
+After that we put "#" and comments describing what bash does
+
+
+        4. Then we write our Linux Commands, in this example we simply write "ls"
+        5. CTRL + O to save and CTRL+X to exit the editor
+        6. To run the "BASH" we simply type "bash "file_name"    OR "./my.sh"
+  
+
+
+CHAPTER 2
+
+echo - ( to display the text ). There are 3 ways to execute echo
+	1. 
+echo $greeting, world \(planet\) !  - In this case "escaping is required of special characters
+
+
+        2. echo '$greeting world (planet) 1'   - It will treat complete content as STRING
+        3. echo "$greeting world (planet) 1"  - Double Quotes are preferable and used. It will automatically take care of escaping and dynamic variables"
+
+    if you put space around "=" when declaring variables then it will give an error while executing, so ensure no extra spaces added in the script.
+
+Example:
+
+#!/bin/bash
+#This is first script file
+greeting="Hello"
+echo "$greeting" from my side
+
+then CTRL+O and CTRL+x
+
+
+Variable Declaration
+If variable values have SPACE then put double quotes("") around it, otherwise skip.
+Example : 
+a=Hello
+c=16
+b="Good Morning"
+echo $a $b $c
+and when use the variables, we need to put "$" sign in front of it.
+
